@@ -1,0 +1,7 @@
+with cte as (
+    select t.* , w.* from {{ ref('trip_fact') }} t
+    left join {{ ref('weather_dimension') }} w on t.trip_date=w.daily_weather
+    order by t.trip_date desc
+)
+
+select * from cte
