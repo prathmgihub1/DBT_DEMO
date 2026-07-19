@@ -1,0 +1,1 @@
+select * from {{ source('demo_source_name', 'bike') }}
